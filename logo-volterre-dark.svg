@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 76" role="img" aria-label="Volterre Électricité">
+  <!-- Logo Volterre (maquette Trend & Ly). Variante "dark" : couleur du texte #101315. -->
+  <g transform="translate(2 2) scale(2)">
+    <path d="M4 2 16 23 28 2" fill="none" stroke="#101315" stroke-width="3.6" stroke-miterlimit="10"/>
+    <rect x="6" y="25" width="20" height="2.6" fill="#D4813A"/>
+    <rect x="10" y="29.2" width="12" height="2.6" fill="#D4813A"/>
+    <rect x="14" y="33.4" width="4" height="2.6" fill="#D4813A"/>
+  </g>
+  <text x="84" y="40" font-family="Archivo, 'Arial Black', Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="5" fill="#101315">VOLTERRE</text>
+  <text x="85" y="62" font-family="'IBM Plex Mono', Consolas, monospace" font-size="10.5" letter-spacing="3.4" fill="#101315" fill-opacity="0.65">ÉLECTRICITÉ GÉNÉRALE</text>
+</svg>

@@ -1,0 +1,102 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[6932,["473","static/chunks/473-467d3f5913ca6d82.js","177","static/chunks/app/layout-889916f5eceafc29.js"],"WhatsAppButton"]
+a:I[7150,[],""]
+:HL["/_next/static/css/15cede910f14bd88.css","style"]
+5:T958,(function () {
+  var d = document, root = d.documentElement;
+  var SEL = "[data-reveal],[data-draw]";
+  var EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var done = new WeakSet();
+
+  function delayOf(el) {
+    var v = parseFloat(getComputedStyle(el).getPropertyValue("--reveal-delay"));
+    return isNaN(v) ? 0 : v;
+  }
+  function show(el) {
+    if (done.has(el)) return;
+    done.add(el);
+    if (!el.animate) return;
+    var delay = delayOf(el);
+    if (el.hasAttribute("data-draw")) {
+      el.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+        { duration: 1400, delay: delay, easing: EASE, fill: "both" });
+      return;
+    }
+    el.animate([{ opacity: 0, transform: "translateY(24px)" }, { opacity: 1, transform: "none" }],
+      { duration: 900, delay: delay, easing: EASE, fill: "both" });
+    var imgs = el.querySelectorAll("img");
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].animate([{ transform: "scale(1.08)" }, { transform: "none" }],
+        { duration: 1500, delay: delay, easing: EASE, fill: "both" });
+    }
+  }
+
+  if (reduce || !("IntersectionObserver" in window)) {
+    root.classList.add("reveal-off");
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) { show(entries[i].target); io.unobserve(entries[i].target); }
+    }
+  }, { rootMargin: "0px 0px -5% 0px", threshold: 0.06 });
+
+  function watch(node) {
+    if (node.nodeType !== 1) return;
+    if (node.matches(SEL)) observe(node);
+    var list = node.querySelectorAll(SEL);
+    for (var i = 0; i < list.length; i++) observe(list[i]);
+  }
+  function observe(el) {
+    if (done.has(el)) return;
+    // Already scrolled past (anchor jump, restored scroll): show at once.
+    if (el.getBoundingClientRect().bottom < 0) {
+      done.add(el);
+      el.animate(el.hasAttribute("data-draw") ? [{ transform: "scaleX(1)" }] : [{ opacity: 1, transform: "none" }],
+        { duration: 0, fill: "both" });
+      return;
+    }
+    io.observe(el);
+  }
+  watch(d.body);
+  new MutationObserver(function (ms) {
+    for (var i = 0; i < ms.length; i++)
+      for (var j = 0; j < ms[i].addedNodes.length; j++) watch(ms[i].addedNodes[j]);
+  }).observe(d.body, { childList: true, subtree: true });
+})();0:{"P":null,"b":"COugDzTTl4UuNCCZcWM-P","p":"","c":["","devis-en-ligne",""],"i":false,"f":[[["",{"children":["devis-en-ligne",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/15cede910f14bd88.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"fr","className":"__variable_7347c0 __variable_9f0762","style":{"--brand-accent":"#D4813A","--brand-accent-deep":"#8F4B17","--brand-ink":"#101315","--brand-paper":"#F3F0E9"},"suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"document.documentElement.classList.add('js')"}}]}],["$","body",null,{"children":[["$","div",null,{"className":"scroll-progress","aria-hidden":"true"}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"flex min-h-[100svh] flex-col justify-between bg-ink py-10 text-paper","children":[["$","div",null,{"className":"container-x","children":["$","a",null,{"href":"/","aria-label":"Volterre Électricité — accueil","children":["$","span",null,{"className":"inline-flex items-center gap-3 text-paper ","children":[["$","svg",null,{"viewBox":"0 0 32 36","className":"h-9 w-auto shrink-0","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"d":"M4 2 16 23 28 2","fill":"none","stroke":"currentColor","strokeWidth":"3.6","strokeLinejoin":"miter","strokeMiterlimit":"10"}],["$","rect",null,{"x":"6","y":"25","width":"20","height":"2.6","className":"fill-accent"}],["$","rect",null,{"x":"10","y":"29.2","width":"12","height":"2.6","className":"fill-accent"}],["$","rect",null,{"x":"14","y":"33.4","width":"4","height":"2.6","className":"fill-accent"}]]}],["$","span",null,{"className":"flex flex-col leading-none","children":[["$","span",null,{"className":"text-[1.08rem] font-bold uppercase tracking-[0.16em] [font-stretch:112%]","children":"Volterre"}],["$","span",null,{"className":"mono mt-[0.4rem] text-[0.56rem] uppercase tracking-[0.24em] opacity-65","children":"Électricité générale"}]]}]]}]}]}],["$","div",null,{"className":"container-x","children":[["$","p",null,{"className":"mono text-sm text-accent","children":"Erreur 404"}],["$","h1",null,{"className":"display mt-6 text-[clamp(3rem,2rem+5vw,6rem)]","children":"Cette page n'existe pas."}],["$","div",null,{"className":"mt-10 flex flex-col gap-3 sm:flex-row","children":[["$","a",null,{"href":"/","className":"btn btn-accent","children":"Retour à l'accueil"}],["$","a",null,{"href":"tel:+33199001234","className":"btn btn-ghost-light","children":"Appeler l'entreprise"}]]}]]}],["$","div",null,{}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L4",null,{}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}]]}]]}],{"children":["devis-en-ligne","$L7",{"children":["__PAGE__","$L8",{},null,false]},null,false]},null,false],"$L9",false]],"m":"$undefined","G":["$a",[]],"s":false,"S":true}
+b:I[2735,["473","static/chunks/473-467d3f5913ca6d82.js","177","static/chunks/app/layout-889916f5eceafc29.js"],"CookieBanner"]
+c:I[2013,["473","static/chunks/473-467d3f5913ca6d82.js","177","static/chunks/app/layout-889916f5eceafc29.js"],"Analytics"]
+d:I[9698,["473","static/chunks/473-467d3f5913ca6d82.js","906","static/chunks/906-8791c50ef2036c59.js","270","static/chunks/app/devis-en-ligne/page-6ff9590d315972d2.js"],"Header"]
+e:I[8022,["473","static/chunks/473-467d3f5913ca6d82.js","906","static/chunks/906-8791c50ef2036c59.js","270","static/chunks/app/devis-en-ligne/page-6ff9590d315972d2.js"],"Estimator"]
+1c:I[4431,[],"ViewportBoundary"]
+1e:I[4431,[],"MetadataBoundary"]
+1f:"$Sreact.suspense"
+6:[["$","$Lb",null,{}],["$","$Lc",null,{}]]
+7:["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+8:["$","$1","c",{"children":[[["$","a",null,{"href":"#contenu","className":"sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-paper focus:px-4 focus:py-3 focus:text-ink","children":"Aller au contenu"}],["$","$Ld",null,{}],["$","main",null,{"id":"contenu","children":[["$","section",null,{"className":"bg-ink pb-28 pt-32 text-paper md:pb-36 lg:pt-40","aria-labelledby":"est-title","children":["$","div",null,{"className":"container-x","children":[["$","h1",null,{"id":"est-title","className":"hero-rise display max-w-4xl text-[clamp(2.4rem,1.5rem+3.4vw,4.6rem)]","style":{"--d":100},"children":"Estimez le prix de vos travaux"}],["$","p",null,{"className":"hero-rise lead mt-6 max-w-2xl text-paper/75","style":{"--d":240},"children":"Trois étapes, environ deux minutes. Vous obtenez une fourchette de prix indicative, puis nous établissons le devis définitif après une visite gratuite."}]]}]}],["$","section",null,{"className":"relative bg-paper-2 pb-24 md:pb-32","aria-label":"Estimateur","children":["$","div",null,{"className":"container-x","children":["$","div",null,{"className":"-mt-16 border border-line bg-paper p-5 shadow-[0_30px_80px_-40px_rgb(16_19_21/0.45)] sm:p-8 md:-mt-20 lg:p-12","children":["$","$Le",null,{}]}]}]}]]}],["$","footer",null,{"className":"bg-ink pb-28 pt-20 text-paper md:pb-12","aria-labelledby":"footer-title","children":[["$","h2",null,{"id":"footer-title","className":"sr-only","children":["Informations sur ","Volterre Électricité"]}],["$","div",null,{"className":"container-x","children":[["$","div",null,{"className":"grid gap-12 border-t border-line-dark pt-14 md:grid-cols-2 lg:grid-cols-12","children":[["$","div",null,{"className":"lg:col-span-4","children":[["$","span",null,{"className":"inline-flex items-center gap-3 text-paper ","children":[["$","svg",null,{"viewBox":"0 0 32 36","className":"h-9 w-auto shrink-0","aria-hidden":"true","focusable":"false","children":[["$","path",null,{"d":"M4 2 16 23 28 2","fill":"none","stroke":"currentColor","strokeWidth":"3.6","strokeLinejoin":"miter","strokeMiterlimit":"10"}],["$","rect",null,{"x":"6","y":"25","width":"20","height":"2.6","className":"fill-accent"}],["$","rect",null,{"x":"10","y":"29.2","width":"12","height":"2.6","className":"fill-accent"}],["$","rect",null,{"x":"14","y":"33.4","width":"4","height":"2.6","className":"fill-accent"}]]}],["$","span",null,{"className":"flex flex-col leading-none","children":[["$","span",null,{"className":"text-[1.08rem] font-bold uppercase tracking-[0.16em] [font-stretch:112%]","children":"Volterre"}],["$","span",null,{"className":"mono mt-[0.4rem] text-[0.56rem] uppercase tracking-[0.24em] opacity-65","children":"Électricité générale"}]]}]]}],["$","p",null,{"className":"mt-6 max-w-xs leading-relaxed text-paper/60","children":"Électricité générale à Valmerie et alentours."}],["$","a",null,{"href":"/devis-en-ligne/","className":"btn btn-accent mt-8 min-h-11 px-5 py-2.5 text-[0.9rem]","children":"Estimer mon prix"}]]}],["$","nav",null,{"aria-label":"Prestations","className":"lg:col-span-3","children":[["$","p",null,{"className":"mono text-[0.7rem] uppercase tracking-[0.1em] text-paper/55","children":"Prestations"}],["$","ul",null,{"className":"mt-5 space-y-2.5 text-[0.95rem] text-paper/80","children":[["$","li","electricite-generale",{"children":["$","a",null,{"href":"/electricite-generale/","className":"link-rule","children":"Électricité générale"}]}],["$","li","domotique",{"children":["$","a",null,{"href":"/domotique/","className":"link-rule","children":"Domotique"}]}],["$","li","chauffage-electrique",{"children":["$","a",null,{"href":"/chauffage-electrique/","className":"link-rule","children":"Chauffage électrique"}]}],["$","li","interphone-visiophone",{"children":["$","a",null,{"href":"/interphone-visiophone/","className":"link-rule","children":"Interphonie et vidéophonie"}]}],["$","li","depannage-electrique",{"children":["$","a",null,{"href":"/depannage-electrique/","className":"link-rule","children":"Dépannage"}]}]]}]]}],["$","nav",null,{"aria-label":"Navigation secondaire","className":"lg:col-span-2","children":[["$","p",null,{"className":"mono text-[0.7rem] uppercase tracking-[0.1em] text-paper/55","children":"Navigation"}],["$","ul",null,{"className":"mt-5 space-y-2.5 text-[0.95rem] text-paper/80","children":[["$Lf","$L10","$L11","$L12","$L13"],"$L14","$L15"]}]]}],"$L16"]}],"$L17","$L18"]}]]}],"$L19","$L1a"],null,"$L1b"]}]
+9:["$","$1","h",{"children":[null,[["$","$L1c",null,{"children":"$L1d"}],null],["$","$L1e",null,{"children":["$","div",null,{"hidden":true,"children":["$","$1f",null,{"fallback":null,"children":"$L20"}]}]}]]}]
+21:I[471,["473","static/chunks/473-467d3f5913ca6d82.js","906","static/chunks/906-8791c50ef2036c59.js","270","static/chunks/app/devis-en-ligne/page-6ff9590d315972d2.js"],"ConsentLink"]
+22:I[7219,["473","static/chunks/473-467d3f5913ca6d82.js","906","static/chunks/906-8791c50ef2036c59.js","270","static/chunks/app/devis-en-ligne/page-6ff9590d315972d2.js"],"MobileCallBar"]
+23:I[4431,[],"OutletBoundary"]
+25:I[5278,[],"AsyncMetadataOutlet"]
+f:["$","li","/#realisations",{"children":["$","a",null,{"href":"/#realisations","className":"link-rule","children":"Réalisations"}]}]
+10:["$","li","/a-propos/",{"children":["$","a",null,{"href":"/a-propos/","className":"link-rule","children":"À propos"}]}]
+11:["$","li","/#zone",{"children":["$","a",null,{"href":"/#zone","className":"link-rule","children":"Zone d'intervention"}]}]
+12:["$","li","/#faq",{"children":["$","a",null,{"href":"/#faq","className":"link-rule","children":"FAQ"}]}]
+13:["$","li","/contact/",{"children":["$","a",null,{"href":"/contact/","className":"link-rule","children":"Contact"}]}]
+14:["$","li",null,{"children":["$","a",null,{"href":"/devis-en-ligne/","className":"link-rule","children":"Devis en ligne"}]}]
+15:["$","li",null,{"children":["$","a",null,{"href":"/contact/","className":"link-rule","children":"Contact"}]}]
+16:["$","div",null,{"className":"lg:col-span-3","children":[["$","p",null,{"className":"mono text-[0.7rem] uppercase tracking-[0.1em] text-paper/55","children":"Coordonnées"}],["$","address",null,{"className":"mt-5 space-y-2.5 text-[0.95rem] not-italic text-paper/80","children":[["$","a",null,{"href":"tel:+33199001234","className":"block font-semibold text-paper tabular-nums hover:text-accent","children":"01 99 00 12 34"}],["$","a",null,{"href":"mailto:contact@volterre-electricite.fr","className":"link-rule block break-all","children":"contact@volterre-electricite.fr"}],["$","span",null,{"className":"block","children":"12 rue des Artisans"}],["$","span",null,{"className":"block","children":["00000"," ","Valmerie"]}]]}],["$","ul",null,{"className":"mt-6 space-y-1 text-sm tabular-nums text-paper/60","children":[[["$","li","Lundi – vendredi",{"children":["Lundi – vendredi"," : ","7 h 30"," – ","18 h"]}],["$","li","Samedi",{"children":["Samedi"," : ","8 h"," – ","12 h"]}]],["$","li",null,{"children":"Dimanche : fermé"}]]}],false]}]
+17:["$","p",null,{"aria-hidden":"true","className":"display mt-20 select-none overflow-hidden whitespace-nowrap text-[clamp(4rem,15vw,15rem)] leading-[0.8] text-paper/[0.06]","children":"Volterre"}]
+18:["$","div",null,{"className":"mt-8 flex flex-col gap-4 border-t border-line-dark pt-6 text-sm text-paper/50 md:flex-row md:items-center md:justify-between","children":[["$","p",null,{"children":["© ",2026," ","Volterre Électricité SARL"]}],["$","ul",null,{"className":"flex flex-wrap gap-x-6 gap-y-2","children":[["$","li",null,{"children":["$","a",null,{"href":"/mentions-legales/","className":"link-rule","children":"Mentions légales"}]}],["$","li",null,{"children":["$","a",null,{"href":"/confidentialite/","className":"link-rule","children":"Confidentialité"}]}],["$","li",null,{"children":["$","$L21",null,{"className":"link-rule"}]}],["$","li",null,{"children":"Site réalisé par Trend & Ly"}]]}]]}]
+19:["$","$L22",null,{}]
+1a:[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Accueil\",\"item\":\"https://28zaaky.github.io/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Devis en ligne\",\"item\":\"https://28zaaky.github.io/devis-en-ligne/\"}]}"}}]]
+1b:["$","$L23",null,{"children":["$L24",["$","$L25",null,{"promise":"$@26"}]]}]
+1d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#101315"}]]
+24:null
+27:I[622,[],"IconMark"]
+26:{"metadata":[["$","title","0",{"children":"Devis électricien en ligne à Valmerie | Volterre"}],["$","meta","1",{"name":"description","content":"Estimez en deux minutes le prix de vos travaux d'électricité, de domotique, de chauffage ou d'interphonie à Valmerie, puis recevez un devis détaillé."}],["$","meta","2",{"name":"application-name","content":"Volterre Électricité"}],["$","meta","3",{"name":"robots","content":"noindex, nofollow"}],["$","link","4",{"rel":"canonical","href":"https://28zaaky.github.io/devis-en-ligne/"}],["$","meta","5",{"name":"format-detection","content":"telephone=no"}],["$","meta","6",{"property":"og:title","content":"Devis électricien en ligne à Valmerie | Volterre"}],["$","meta","7",{"property":"og:description","content":"Estimez en deux minutes le prix de vos travaux d'électricité, de domotique, de chauffage ou d'interphonie à Valmerie, puis recevez un devis détaillé."}],["$","meta","8",{"property":"og:url","content":"https://28zaaky.github.io/devis-en-ligne/"}],["$","meta","9",{"property":"og:site_name","content":"Volterre Électricité"}],["$","meta","10",{"property":"og:locale","content":"fr_FR"}],["$","meta","11",{"property":"og:image","content":"https://28zaaky.github.io/og/tableau-electrique.jpg"}],["$","meta","12",{"property":"og:image:width","content":"1200"}],["$","meta","13",{"property":"og:image:height","content":"630"}],["$","meta","14",{"property":"og:image:alt","content":"Tableau électrique avec disjoncteurs repérés"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","17",{"name":"twitter:title","content":"Devis électricien en ligne à Valmerie | Volterre"}],["$","meta","18",{"name":"twitter:description","content":"Estimez en deux minutes le prix de vos travaux d'électricité, de domotique, de chauffage ou d'interphonie à Valmerie, puis recevez un devis détaillé."}],["$","meta","19",{"name":"twitter:image","content":"https://28zaaky.github.io/og/tableau-electrique.jpg"}],["$","link","20",{"rel":"icon","href":"/icon.svg?e00b1b71662947fe","type":"image/svg+xml","sizes":"any"}],["$","$L27","21",{}]],"error":null,"digest":"$undefined"}
+20:"$26:metadata"
